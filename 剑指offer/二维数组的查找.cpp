@@ -8,14 +8,14 @@ bool Find(int* arr, size_t rows, size_t cols, int value)
 	assert(arr);
 	int x = 0;
 	int y = cols - 1;
-	// xÓëÓÒÉÏ½ÇµÄÖµ×÷ÎªÆğµã¿ªÊ¼±È½Ï
+	// xä¸å³ä¸Šè§’çš„å€¼ä½œä¸ºèµ·ç‚¹å¼€å§‹æ¯”è¾ƒ
 	while (x<rows && y>=0)
 	{
-		if (arr[x*cols + y] < value) //µ±Ç°Î»ÖÃĞ¡ÓÚvalue£¬ÅÅ³ıÕâÒ»ĞĞ
+		if (arr[x*cols + y] < value) //å½“å‰ä½ç½®å°äºvalueï¼Œæ’é™¤è¿™ä¸€è¡Œ
 		{
 			++x;
 		}
-		else if (arr[x*cols + y] > value) //µ±Ç°Î»ÖÃ´óÓÚvalue£¬ÅÅ³ıÕâÒ»ÁĞ
+		else if (arr[x*cols + y] > value) //å½“å‰ä½ç½®å¤§äºvalueï¼Œæ’é™¤è¿™ä¸€åˆ—
 		{
 			--y;
 		}
