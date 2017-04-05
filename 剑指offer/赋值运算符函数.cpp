@@ -3,13 +3,13 @@
 #include<string.h>
 using namespace std;
 
-// ½£Ö¸offer
-// ¸³ÖµÔËËã·ûº¯Êı
+// å‰‘æŒ‡offer
+// èµ‹å€¼è¿ç®—ç¬¦å‡½æ•°
 
 class String
 {
 public:
-	// ¹¹Ôìº¯Êı
+	// æ„é€ å‡½æ•°
 	String(const char* str=NULL)
 	{
 		if (str != NULL)
@@ -24,7 +24,7 @@ public:
 		}
 	}
 
-	// ¿½±´¹¹Ôìº¯Êı
+	// æ‹·è´æ„é€ å‡½æ•°
 	String(const String& s)
 		:_str(NULL)
 	{
@@ -32,7 +32,7 @@ public:
 		swap(_str, tmp._str);
 	}
 
-	//ÔËËã·ûÖØÔØ
+	//è¿ç®—ç¬¦é‡è½½
 		String& operator=(const String& s)
 	{
 		if (this != &s)
@@ -42,7 +42,7 @@ public:
 		}
 		return*this;
 	}
-	//Îö¹¹º¯Êı
+	//ææ„å‡½æ•°
 	~String()
 	{
 		if (_str!=NULL)
