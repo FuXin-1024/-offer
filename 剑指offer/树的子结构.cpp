@@ -13,6 +13,17 @@ struct Node
 		, _right(NULL)
 	{}
 };
+Node* CreateTree(int* a, size_t n, size_t& index)
+{
+	if (index < n && a[index] != '#')
+	{
+		Node* root = new Node(a[index]);
+		root->_left = CreateTree(a, n, ++index);
+		root->_right = CreateTree(a, n, ++index);
+		return root;
+	}
+	return NULL;
+}
 
 bool DoesTree1HaveTree2(Node* root1, Node* root2)
 {
@@ -36,15 +47,27 @@ bool HasSubtree(Node* root1, Node* root2)
 		if (root1->_value==root2->_value)
 			result = DoesTree1HaveTree2(root1, root2);
 		if (!result)
-			HasSubtree(root1->_left, root2);
+			result=HasSubtree(root1->_left, root2);
 		if (!result)
-			HasSubtree(root1->_right, root2);
+			result=HasSubtree(root1->_right, root2);
 	}
 	return result;
 }
+
+void Test()
+{
+	int a1[] = { 8, 8, 9, '#', '#', 2, 4, '#', '#', 7, '#', '#', 7, '#', '#' };
+	int a2[] = { 8, 9, '#', '#', 2 ,'#', '#' };
+	size_t index1 = 0;
+	Node* root1 = CreateTree(a1, sizeof(a1) / sizeof(a1[0]), index1);
+
+	size_t index2 = 0;
+	Node* root2 = CreateTree(a2, sizeof(a2) / sizeof(a2[0]), index2);
+	cout << HasSubtree(root1, root2) << endl;
+}
 int main()
 {
-
+	Test();
 	system("pause");
 	return 0;
 }
