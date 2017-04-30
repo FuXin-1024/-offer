@@ -47,8 +47,17 @@ bool VerifySquenceOfBST(int* arr, int len)
 		right = VerifySquenceOfBST(arr + i, len - 1 - i);
 	return (left && right);
 }
+
+void Test()
+{
+	int arr1[] = { 5, 7, 6, 9, 11, 10 };
+	cout <<"arr1??  "<< VerifySquenceOfBST(arr1, sizeof(arr1) / sizeof(arr1[0])) << endl;
+	int arr2[] = { 7, 4, 6, 5 };
+	cout << "arr2??  " << VerifySquenceOfBST(arr2, sizeof(arr2) / sizeof(arr2[0])) << endl;
+}
 int main()
 {
+	Test();
 	system("pause");
 	return 0;
 }
