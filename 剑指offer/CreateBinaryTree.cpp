@@ -8,7 +8,7 @@ struct Node
 	Node* _left;
 	Node* _right;
 
-	Node(const int& x)
+	Node(const int x)
 		:_value(x)
 		, _left(NULL)
 		, _right(NULL)
@@ -27,8 +27,8 @@ Node* Create(int* firstPrev, int* endPrev, int* firstIn, int* endIn)
 			assert(false);
 	}
 	//在中序遍历中找左子树--->前序遍历首元素的左边
-	int* rootInOrder = firstPrev;
-	if (rootInOrder <= endIn && *rootInOrder != *firstPrev)
+	int* rootInOrder = firstIn;
+	while(rootInOrder <= endIn && *rootInOrder != *firstPrev)
 		++rootInOrder;
 	if (rootInOrder == endIn && *rootInOrder != *firstPrev)
 		assert(false);//参数有误
@@ -50,8 +50,15 @@ Node* CreateBinaryTree(int* PrevOrder, int* InOrder,int n)
 	assert(n);
 	return Create(PrevOrder,PrevOrder+n-1,InOrder,InOrder+n-1);
 }
+void Test()
+{
+	int preOrder[] = { 1, 2, 4, 7, 3, 5, 6, 8 };
+	int inOrder[] = { 4, 7, 2, 1, 5, 3, 8, 6 };
+	Node *root = CreateBinaryTree(preOrder, inOrder, sizeof(preOrder) / sizeof(*preOrder));
+}
 int main()
 {
+	Test();
 	system("pause");
 	return 0;
 }
